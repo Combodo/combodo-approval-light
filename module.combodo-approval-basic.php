@@ -56,7 +56,7 @@ SetupWebPage::AddModule(
 		'settings' => array(
 			// Module specific settings go here, if any
 			'approval_timeout_delay' => '5',
-			'approve_on_timeout' => 'no',
+			'approve_on_timeout' => false,
 		),
 	)
 );

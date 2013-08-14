@@ -1,5 +1,5 @@
 <?php
-// Copyright (C) 2012 Combodo SARL
+// Copyright (C) 2013 Combodo SARL
 //
 //   This program is free software; you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 
 
 /**
- * Module approval-demo
+ * Module approval-light
  *
  * @author      Erwan Taloc <erwan.taloc@combodo.com>
  * @author      Romain Quetiez <romain.quetiez@combodo.com>
@@ -48,28 +48,21 @@ class UserRequestApprovalScheme extends ApprovalScheme
 	 	
 	public static function GetApprovalScheme($oObject, $sReachingState)
 	{
-
-
 		if ((get_class($oObject) != 'UserRequest'))
 		{
-
 			return null;
 		}
 		if ($sReachingState != 'waiting_for_approval')
 		{
 			return null;
 		}
-	
 
 		$sOQL = "SELECT Person AS p JOIN UserRequest AS ur ON ur.approver_id=p.id WHERE ur.id = :id";
-	
-		$oApproverSet = new DBObjectSet(DBObjectSearch::FromOQL($sOQL),
-					array(),
-					array(
-					'id' => $oObject->GetKey(),	
-					)
+		$oApproverSet = new DBObjectSet(
+			DBObjectSearch::FromOQL($sOQL),
+			array(),
+			array('id' => $oObject->GetKey())
 		);	
-
 		if ($oApproverSet->count() == 0)
 		{
 			return null;
@@ -84,8 +77,8 @@ class UserRequestApprovalScheme extends ApprovalScheme
 				'id' => $oApprover->GetKey()
 			);
 		$iTimeoutDelay = MetaModel::GetModuleSetting('combodo-approval-light', 'approval_timeout_delay', '');
-		$sApproveOnTimeOut = MetaModel::GetModuleSetting('combodo-approval-light', 'approve_on_timeout', '');
-		$oScheme->AddStep($aContacts, $iTimeoutDelay*86400 /*timeout (s)*/, $sApproveOnTimeOut /* approve on timeout*/);	
+		$bApproveOnTimeOut = MetaModel::GetModuleSetting('combodo-approval-light', 'approve_on_timeout', false);
+		$oScheme->AddStep($aContacts, $iTimeoutDelay*86400 /*timeout (s)*/, $bApproveOnTimeOut /* approve on timeout*/);	
 		return $oScheme;
 	}
 
@@ -110,27 +103,27 @@ class UserRequestApprovalScheme extends ApprovalScheme
 
 	}
 
-	 	
+
 	public function GetTitle($sContactClass, $iContactId)
 	{
 		$sValue = Dict::S('Approbation:ApprovalRequested');
 		return $sValue;
 	}
 
-	 	
+
 	public function GetIntroduction($sContactClass, $iContactId)
 	{
 		$sIntroduction = Dict::S('Approbation:Introduction');
 		return $sIntroduction;
 	}
 
- 	
+
 	public function DoApprove(&$oObject)
 	{
 		$oObject->ApplyStimulus('ev_approve');
 	}
 
-	 	
+
 	public function DoReject(&$oObject)
 	{
 		$oObject->ApplyStimulus('ev_reject');
@@ -139,4 +132,3 @@ class UserRequestApprovalScheme extends ApprovalScheme
 
 $oMyMenuGroup = new MenuGroup('RequestManagement', 30 /* fRank */);
 new WebPageMenuNode('Ongoing approval',utils::GetAbsoluteUrlAppRoot().'/env-production/approval-base/report.php?class=UserRequest',$oMyMenuGroup->GetIndex(),6);
-?>
