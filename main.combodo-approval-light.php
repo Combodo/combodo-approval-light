@@ -57,12 +57,13 @@ class UserRequestApprovalScheme extends ApprovalScheme
 			return null;
 		}
 
-		$sOQL = "SELECT Person AS p JOIN UserRequest AS ur ON ur.approver_id=p.id WHERE ur.id = :id";
-		$oApproverSet = new DBObjectSet(
-			DBObjectSearch::FromOQL($sOQL),
-			array(),
-			array('id' => $oObject->GetKey())
-		);	
+		$sOQL = MetaModel::GetModuleSetting('combodo-approval-light', 'approver_select', 'SELECT Person AS p  WHERE id = :this->approver_id');
+		$oSearch = DBObjectSearch::FromOQL($sOQL);
+		if (!MetaModel::IsParentClass('Contact', $oSearch->GetClass()))
+		{
+			throw new Exception('Wrong class for approver_select query. Expecting a class derived from Contact, found: '.$oSearch->GetClass());
+		}
+		$oApproverSet = new DBObjectSet($oSearch, array(), $oObject->ToArgs('this'));	
 		if ($oApproverSet->count() == 0)
 		{
 			return null;
@@ -71,14 +72,18 @@ class UserRequestApprovalScheme extends ApprovalScheme
 		$oScheme = new UserRequestApprovalScheme();	
 
 		$aContacts = array();		
-		$oApprover = $oApproverSet->Fetch();
+		while ($oApprover = $oApproverSet->Fetch())
+		{
 			$aContacts[] = array(
-				'class' => 'Person',
-				'id' => $oApprover->GetKey()
+				'class' => get_class($oApprover),
+				'id' => $oApprover->GetKey(),
 			);
+		}
 		$iTimeoutDelay = MetaModel::GetModuleSetting('combodo-approval-light', 'approval_timeout_delay', '');
 		$bApproveOnTimeOut = MetaModel::GetModuleSetting('combodo-approval-light', 'approve_on_timeout', false);
-		$oScheme->AddStep($aContacts, $iTimeoutDelay*86400 /*timeout (s)*/, $bApproveOnTimeOut /* approve on timeout*/);	
+		$iExitCondition = self::EXIT_ON_FIRST_REJECT; // this is the default
+		$oScheme->AddStep($aContacts, $iTimeoutDelay*86400 /*timeout (s)*/, $bApproveOnTimeOut, $iExitCondition);	
+
 		return $oScheme;
 	}
 
