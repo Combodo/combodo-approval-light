@@ -29,14 +29,14 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Menu:Ongoing approval+' => 'Requests waiting for approval',
 	'Approbation:ApprovalSubject' => 'Your approval is requested: $object->ref$',
 	'Approbation:ApprovalBody' => '<p>Dear $approver->friendlyname$, please take some time to approve or reject ticket $object->ref$</p>
-				      <h3>Title : $object->title$</h3>
-				      <pre>Description:<pre>
-				      <pre>$object->description$<pre>
-				      <pre>Caller: $object->caller_id_friendlyname$</pre>
-				      <pre>Service: $object->service_name$</pre>
-				      <pre>Service Category: $object->servicesubcategory_name$</pre>
-				      <pre>Details:<pre>
-				      <pre>$object->public_log$<pre>',
+		<h3>Title : $object->title$</h3>
+		<p>Description:</p>
+		<pre>$object->description$</pre>
+		<p>Caller: $object->caller_id_friendlyname$</p>
+		<p>Service: $object->service_name$</p>
+		<p>Service Category: $object->servicesubcategory_name$</p>
+		<p>Details:</p>
+		<pre>$object->public_log$</pre>',
 	'Approbation:FormBody' => '<p>Dear $approver->friendlyname$, please take some time to approve or reject the ticket</p>',
 	'Approbation:ApprovalRequested' => 'Your approval is requested',
 	'Approbation:Introduction' => '<p>Dear $approver->friendlyname$, please take some time to approve or reject ticket $object->friendlyname$</p>',
