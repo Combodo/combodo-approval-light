@@ -55,7 +55,7 @@ SetupWebPage::AddModule(
 		//
 		'settings' => array(
 			// Module specific settings go here, if any
-			'approval_timeout_delay' => '5',
+			'approval_timeout_delay' => 5,
 			'approve_on_timeout' => false,
 			'approver_select' => 'SELECT Person AS p  WHERE id = :this->approver_id',
 		),

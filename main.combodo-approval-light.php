@@ -79,7 +79,7 @@ class UserRequestApprovalScheme extends ApprovalScheme
 				'id' => $oApprover->GetKey(),
 			);
 		}
-		$iTimeoutDelay = MetaModel::GetModuleSetting('combodo-approval-light', 'approval_timeout_delay', '');
+		$iTimeoutDelay = MetaModel::GetModuleSetting('combodo-approval-light', 'approval_timeout_delay', 5);
 		$bApproveOnTimeOut = MetaModel::GetModuleSetting('combodo-approval-light', 'approve_on_timeout', false);
 		$iExitCondition = self::EXIT_ON_FIRST_REJECT; // this is the default
 		$oScheme->AddStep($aContacts, $iTimeoutDelay*86400 /*timeout (s)*/, $bApproveOnTimeOut, $iExitCondition);	
