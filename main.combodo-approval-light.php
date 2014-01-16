@@ -135,5 +135,63 @@ class UserRequestApprovalScheme extends ApprovalScheme
 	}
 }
 
+class ApprovalFromUI implements iPopupMenuExtension
+{
+	/**
+	 * Get the list of items to be added to a menu.
+	 *
+	 * This method is called by the framework for each menu.
+	 * The items will be inserted in the menu in the order of the returned array.
+	 * @param int $iMenuId The identifier of the type of menu, as listed by the constants MENU_xxx
+	 * @param mixed $param Depends on $iMenuId, see the constants defined above
+	 * @return object[] An array of ApplicationPopupMenuItem or an empty array if no action is to be added to the menu
+	 */
+	public static function EnumItems($iMenuId, $param)
+	{
+		$aRet = array();
+		if ($iMenuId == self::MENU_OBJDETAILS_ACTIONS)
+		{
+			$oObject = $param;
+
+			// Filter out the object out of scope of the approval processes
+			if (get_class($oObject) == 'UserRequest')
+			{
+				// Is there an ongoing approval process for the object ?
+				$oApprovSearch = DBObjectSearch::FromOQL('SELECT ApprovalScheme WHERE status = \'ongoing\' AND obj_class = :obj_class AND obj_key = :obj_key');
+				$oApprovSearch->AllowAllData();
+				$oApprovals = new DBObjectSet($oApprovSearch, array(), array('obj_class' => get_class($oObject), 'obj_key' => $oObject->GetKey()));
+				if ($oApprovals->Count() > 0)
+				{
+					$oApproval = $oApprovals->Fetch();
+
+					// Is the current user associated to a contact ?
+					$iContactId = UserRights::GetContactId();
+					if ($iContactId > 0)
+					{
+						// Does the approval concern the current user?
+						$sReplyUrl = $oApproval->MakeReplyUrl('Person', $iContactId);
+						if (!is_null($sReplyUrl))
+						{
+							// Here we are: add a menu to approve or reject the request
+							$aRet[] = new URLPopupMenuItem('approval_reply_url', Dict::S('Approval:Action-ApproveOrReject'), $sReplyUrl);
+						}
+					}
+					// For administrators, propose to force the result
+					if (UserRights::IsAdministrator())
+					{
+						if (MetaModel::GetConfig()->GetModuleSetting('combodo-approval-light', 'enable_admin_abort', false))
+						{
+							$sReplyUrl = $oApproval->MakeAbortUrl();
+							$aRet[] = new URLPopupMenuItem('approval_abort_url', Dict::S('Approval:Action-Abort'), $sReplyUrl);
+						}
+					}
+				}
+			}
+		}
+		return $aRet;
+	}
+}
+
+
 $oMyMenuGroup = new MenuGroup('RequestManagement', 30 /* fRank */);
-new WebPageMenuNode('Ongoing approval',utils::GetAbsoluteUrlAppRoot().'/env-production/approval-base/report.php?class=UserRequest',$oMyMenuGroup->GetIndex(),6);
+new WebPageMenuNode('Ongoing approval',utils::GetAbsoluteUrlModulesRoot().'approval-base/report.php?class=UserRequest&do_filter_my_approvals=on',$oMyMenuGroup->GetIndex(),6);

@@ -16,7 +16,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'combodo-approval-light/1.0.0',
+	'combodo-approval-light/1.0.1',
 	array(
 		// Identification
 		//
@@ -26,7 +26,8 @@ SetupWebPage::AddModule(
 		// Setup
 		//
 		'dependencies' => array(
-			'approval-base/1.2.0',
+			'approval-base/1.3.0',
+			'itop-request-mgmt/2.0.0||itop-request-mgmt-itil/2.0.0', // To alter the definition of UserRequest
 		),
 		'mandatory' => false,
 		'visible' => true,
@@ -34,6 +35,7 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
+			'model.combodo-approval-light.php',
 			'main.combodo-approval-light.php'
 		),
 		'webservice' => array(
@@ -58,6 +60,7 @@ SetupWebPage::AddModule(
 			'approval_timeout_delay' => 5,
 			'approve_on_timeout' => false,
 			'approver_select' => 'SELECT Person AS p  WHERE id = :this->approver_id',
+			'enable_admin_abort' => false
 		),
 	)
 );
