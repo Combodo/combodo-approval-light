@@ -134,6 +134,16 @@ class UserRequestApprovalScheme extends ApprovalScheme
 		$oObject->ApplyStimulus('ev_reject');
 	}
 
+	public function IsAllowedToSeeObjectDetails($oApprover, $oObject)
+	{
+		if (is_null(UserRights::GetUserObject()))
+		{
+			// Not logged in
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * Overridable to implement the abort feature
 	 * @param oUser (implicitely the current user if null)	 
