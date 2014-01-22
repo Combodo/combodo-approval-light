@@ -35,7 +35,6 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
-			'model.combodo-approval-light.php',
 			'main.combodo-approval-light.php'
 		),
 		'webservice' => array(
