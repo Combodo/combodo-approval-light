@@ -59,7 +59,7 @@ SetupWebPage::AddModule(
 			'approval_timeout_delay' => 5,
 			'approve_on_timeout' => false,
 			'approver_select' => 'SELECT Person AS p  WHERE id = :this->approver_id',
-			'enable_admin_abort' => false
+			'bypass_profiles' => 'Administrator, Service Manager'
 		),
 	)
 );
