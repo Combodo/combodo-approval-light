@@ -7,6 +7,15 @@
           <stimulus id="ev_approve" xsi:type="StimulusInternal" _delta="redefine"/>
           <stimulus id="ev_reject" xsi:type="StimulusInternal" _delta="redefine"/>
         </stimuli>
+        <states>
+          <state id="waiting_for_approval">
+            <flags>
+              <attribute id="approver_id">
+                <mandatory _delta="define"/>
+              </attribute>
+            </flags>
+          </state>
+        </states>
       </lifecycle>
     </class>
   </classes>
