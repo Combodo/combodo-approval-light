@@ -16,7 +16,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'combodo-approval-light/1.0.3',
+	'combodo-approval-light/1.0.4',
 	array(
 		// Identification
 		//
@@ -35,6 +35,7 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
+			'model.combodo-approval-light.php',
 			'main.combodo-approval-light.php'
 		),
 		'webservice' => array(
