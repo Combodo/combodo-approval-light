@@ -27,8 +27,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	// Dictionary entries go here
 	'Menu:Ongoing approval' => 'Requests waiting for approval',
 	'Menu:Ongoing approval+' => 'Requests waiting for approval',
-	'Approbation:ApprovalSubject' => 'Your approval is requested: $object->ref$',
-	'Approbation:ApprovalBody' => '<p>Dear $approver->friendlyname$, please take some time to approve or reject ticket $object->ref$</p>
+	'Approbation:PublicObjectDetails' => '<p>Dear $approver->friendlyname$, please take some time to approve or reject ticket $object->ref$</p>
 		<h3>Title : $object->title$</h3>
 		<p>Description:</p>
 		<pre>$object->description$</pre>
