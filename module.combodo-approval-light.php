@@ -16,7 +16,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'combodo-approval-light/1.1.0',
+	'combodo-approval-light/1.1.1',
 	array(
 		// Identification
 		//
@@ -99,7 +99,7 @@ if (!class_exists('ApprovalLightInstaller'))
 			// Upgrading from a version older than 1.1 : create the sample data
 			if (version_compare($sPreviousVersion, '1.1.0', '<'))
 			{
-				SetupPage::log_info("Upgrading combodo-approval-extended from '$sPreviousVersion' to '$sCurrentVersion'. Starting with 1.1.0, the extension requires a set of trigger/actions that will created into the DB...");
+				SetupPage::log_info("Upgrading combodo-approval-light from '$sPreviousVersion' to '$sCurrentVersion'. Starting with 1.1.0, the extension requires a set of trigger/actions that will created into the DB...");
 
 				$oTrigger = MetaModel::NewObject('TriggerOnApprovalRequest');
 				$oTrigger->Set('description', 'Approval requested');
@@ -112,16 +112,14 @@ if (!class_exists('ApprovalLightInstaller'))
 				$oAction->Set('status', 'enabled');
 				$oAction->Set('subject', 'Your approval is requested: $this->ref$');
 				$oAction->Set('subject_reminder', 'Your approval is requested: $this->ref$ (reminder)');
-				$oAction->Set('body', '<h3>Your approval is requested: $this->ref$</h3>
-					<p>Dear $approver->friendlyname$, please take some time to approve or reject ticket $this->ref$</p>
-					<b>Caller:</b>$this->caller_id_friendlyname$<br>
-					<b>Title:</b>$this->title$<br>
-					<b>Service:</b>$this->service_name$<br>
-					<b>Service subcategory:</b>$this->servicesubcategory_name$<br>
+				$oAction->Set('body', '<h3>Your approval is requested: $this->html(ref)$</h3>
+					<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject ticket $this->html(ref)$</p>
+					<b>Caller:</b>$this->html(caller_id_friendlyname)$<br>
+					<b>Title:</b>$this->html(title)$<br>
+					<b>Service:</b>$this->html(service_name)$<br>
+					<b>Service subcategory:</b>$this->html(servicesubcategory_name)$<br>
 					<b>Description</b>				     
-					<pre>$this->description$</pre>
-					<b>Additional information:</b>
-					<pre>$this->head(public_log)$</pre>
+					<pre>$this->html(description$)</pre>
 					<p>$approval_link$</p>'
 				);
 				$oAction->DBInsert();
@@ -132,16 +130,14 @@ if (!class_exists('ApprovalLightInstaller'))
 				$oAction->Set('status', 'enabled');
 				$oAction->Set('subject', 'Votre approbation est attendue : $this->ref$');
 				$oAction->Set('subject_reminder', 'Votre approbation est attendue : $this->ref$ (relance)');
-				$oAction->Set('body', '<h3>Votre approbation est attendue : $this->ref$</h3>
-					<p>Cher $approver->friendlyname$, merci de prendre le temps d\'approuver le ticket $this->ref$</p>
-					<b>Demandeur:</b>$this->caller_id_friendlyname$<br>
-					<b>Titre:</b>$this->title$<br>
-					<b>Service:</b>$this->service_name$<br>
-					<b>Sous catégorie de service:</b>$this->servicesubcategory_name$<br>
+				$oAction->Set('body', '<h3>Votre approbation est attendue : $this->html(ref)$</h3>
+					<p>Cher $approver->html(friendlyname)$, merci de prendre le temps d\'approuver le ticket $this->html(ref)$</p>
+					<b>Demandeur:</b>$this->html(caller_id_friendlyname)$<br>
+					<b>Titre:</b>$this->html(title)$<br>
+					<b>Service:</b>$this->html(service_name)$<br>
+					<b>Sous catégorie de service:</b>$this->html(servicesubcategory_name)$<br>
 					<b>Description</b>				     
-					<pre>$this->description$</pre>
-					<b>Information complémentaire:</b>
-					<pre>$this->head(public_log)$</pre>
+					$this->html(description)$
 					<p>$approval_link$</p>
 				');
 				$oAction->DBInsert();
@@ -153,15 +149,13 @@ if (!class_exists('ApprovalLightInstaller'))
 				$oAction->Set('subject', 'Ihre Freigabeanfrage wurde erstellt $this->ref$');
 				$oAction->Set('subject_reminder', 'Ihre Freigabeanfrage wurde erstellt $this->ref$ (Erinnerung)');
 				$oAction->Set('body', '<h3>Ihre Freigabeanfrage wurde erstellt $this->ref$</h3>
-					<p>Sehr geehrte/r $approver->friendlyname$, bitte nehmen sie sich etwas Zeit, um Ticket $this->ref$ zu bearbeiten</p>
-					<h3>Titel : $this->title$</h3>
+					<p>Sehr geehrte/r $approver->html(friendlyname)$, bitte nehmen sie sich etwas Zeit, um Ticket $this->html(ref)$ zu bearbeiten</p>
+					<h3>Titel : $this->html(title)$</h3>
 					<p>Beschreibung:</p>
-					<pre>$this->description$</pre>
-					<p>Ersteller: $this->caller_id_friendlyname$</p>
-					<p>Service: $this->service_name$</p>
-					<p>Servicekategorie: $this->servicesubcategory_name$</p>
-					<p>Details:</p>
-					<pre>$this->public_log$</pre>
+					$this->html(description)$
+					<p>Ersteller: $this->html(caller_id_friendlyname)$</p>
+					<p>Service: $this->html(service_name)$</p>
+					<p>Servicekategorie: $this->html(servicesubcategory_name)$</p>
 					<p>$approval_link$</p>
 				');
 				$oAction->DBInsert();
