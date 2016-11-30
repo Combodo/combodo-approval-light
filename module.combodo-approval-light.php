@@ -16,7 +16,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'combodo-approval-light/1.1.1',
+	'combodo-approval-light/1.1.2',
 	array(
 		// Identification
 		//
@@ -114,12 +114,12 @@ if (!class_exists('ApprovalLightInstaller'))
 				$oAction->Set('subject_reminder', 'Your approval is requested: $this->ref$ (reminder)');
 				$oAction->Set('body', '<h3>Your approval is requested: $this->html(ref)$</h3>
 					<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject ticket $this->html(ref)$</p>
-					<b>Caller:</b>$this->html(caller_id_friendlyname)$<br>
-					<b>Title:</b>$this->html(title)$<br>
-					<b>Service:</b>$this->html(service_name)$<br>
-					<b>Service subcategory:</b>$this->html(servicesubcategory_name)$<br>
-					<b>Description</b>				     
-					<pre>$this->html(description$)</pre>
+					<b>Caller</b>: $this->html(caller_id_friendlyname)$<br>
+					<b>Title</b>: $this->html(title)$<br>
+					<b>Service</b>: $this->html(service_name)$<br>
+					<b>Service subcategory</b>: $this->html(servicesubcategory_name)$<br>
+					<b>Description</b>:<br>
+					<div>$this->html(description$)</div>
 					<p>$approval_link$</p>'
 				);
 				$oAction->DBInsert();
@@ -132,12 +132,12 @@ if (!class_exists('ApprovalLightInstaller'))
 				$oAction->Set('subject_reminder', 'Votre approbation est attendue : $this->ref$ (relance)');
 				$oAction->Set('body', '<h3>Votre approbation est attendue : $this->html(ref)$</h3>
 					<p>Cher $approver->html(friendlyname)$, merci de prendre le temps d\'approuver le ticket $this->html(ref)$</p>
-					<b>Demandeur:</b>$this->html(caller_id_friendlyname)$<br>
-					<b>Titre:</b>$this->html(title)$<br>
-					<b>Service:</b>$this->html(service_name)$<br>
-					<b>Sous catégorie de service:</b>$this->html(servicesubcategory_name)$<br>
-					<b>Description</b>				     
-					$this->html(description)$
+					<b>Demandeur</b>&nbsp;: $this->html(caller_id_friendlyname)$<br>
+					<b>Titre</b>&nbsp;: $this->html(title)$<br>
+					<b>Service</b>&nbsp;: $this->html(service_name)$<br>
+					<b>Sous catégorie de service</b>&nbsp;: $this->html(servicesubcategory_name)$<br>
+					<b>Description</b>&nbsp;:<br>
+					<div>$this->html(description)$</div>
 					<p>$approval_link$</p>
 				');
 				$oAction->DBInsert();
