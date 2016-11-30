@@ -27,22 +27,15 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	// Dictionary entries go here
 	'Menu:Ongoing approval' => 'Requêtes en attente d\'approbation',
 	'Menu:Ongoing approval+' => 'Requêtes en attente d\'approbation',
-	'Approbation:ApprovalSubject' => 'Votre approbation est attendue : $object->ref$',
-	'Approbation:ApprovalBody' => '<p>Cher $approver->friendlyname$, merci de prendre le temps d\'approuver le ticket $object->ref$</p>
-		<h3>Titre : $object->title$</h3>
-		<p>Description :</p>
-		<pre>$object->description$</pre>
-		<p>Demandeur : $object->caller_id_friendlyname$</p>
-		<p>Service : $object->service_name$</p>
-		<p>Catégorie de service : $object->servicesubcategory_name$</p>
-		<p>Détails :</p>
-		<pre>$object->public_log$</pre>',
-	'Approbation:FormBody' => '<p>Cher $approver->friendlyname$, merci de prendre le temps d\'approuver le ticket</p>',
+	'Approbation:ApprovalSubject' => 'Votre approbation est attendue : $object->html(ref)$',
+	'Approbation:ApprovalBody' => '<p>Cher $approver->html(friendlyname)$, merci de prendre le temps d\'approuver le ticket $object->html(ref)$</p>
+				      <b>Demandeur</b>&nbsp;: $object->html(caller_id_friendlyname)$<br>
+				      <b>Titre</b>&nbsp;: $object->html(title)$<br>
+				      <b>Service</b>&nbsp;: $object->html(service_name)$<br>
+				      <b>Sous catégorie de service</b>&nbsp;: $object->html(servicesubcategory_name)$<br>
+				      <b>Description</b>&nbsp;:<br>				     
+				      $object->html(description)$',
+	'Approbation:FormBody' => '<p>Cher $approver->html(friendlyname)$, merci de prendre le temps d\'approuver le ticket</p>',
 	'Approbation:ApprovalRequested' => 'Votre approbation est attendue',
-	'Approbation:Introduction' => '<p>Cher $approver->friendlyname$, merci de prendre le temps d\'approuver le ticket $object->friendlyname$</p>',
-
-
+	'Approbation:Introduction' => '<p>Cher $approver->html(friendlyname)$, merci de prendre le temps d\'approuver le ticket $object->html(friendlyname)$</p>',
 ));
-
-
-?>
