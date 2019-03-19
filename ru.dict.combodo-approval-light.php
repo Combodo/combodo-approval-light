@@ -35,3 +35,11 @@ Dict::Add('RU RU', 'Russian', 'Русский', array(
 	'Approbation:ApprovalRequested' => 'Your approval is requested~~',
 	'Approbation:Introduction' => '<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject ticket $object->html(friendlyname)$</p>~~',
 ));
+//
+// Class: UserRequestApprovalScheme
+//
+
+Dict::Add('RU RU', 'Russian', 'Русский', array(
+	'Class:UserRequestApprovalScheme' => 'UserRequestApprovalScheme~~',
+	'Class:UserRequestApprovalScheme+' => '~~',
+));
