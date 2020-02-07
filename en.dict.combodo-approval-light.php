@@ -46,3 +46,14 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:UserRequestApprovalScheme' => 'UserRequestApprovalScheme',
 	'Class:UserRequestApprovalScheme+' => '',
 ));
+
+//
+// Class: UserRequest
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:UserRequest/Stimulus:ev_approve' => 'Approve',
+	'Class:UserRequest/Stimulus:ev_approve+' => '',
+	'Class:UserRequest/Stimulus:ev_reject' => 'Reject',
+	'Class:UserRequest/Stimulus:ev_reject+' => '',
+));

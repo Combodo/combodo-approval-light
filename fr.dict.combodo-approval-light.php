@@ -44,3 +44,14 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:UserRequestApprovalScheme' => 'UserRequestApprovalScheme~~',
 	'Class:UserRequestApprovalScheme+' => '~~',
 ));
+
+//
+// Class: UserRequest
+//
+
+Dict::Add('FR FR', 'French', 'Français', array(
+	'Class:UserRequest/Stimulus:ev_approve' => 'Approuver',
+	'Class:UserRequest/Stimulus:ev_approve+' => '~~',
+	'Class:UserRequest/Stimulus:ev_reject' => 'Rejeter',
+	'Class:UserRequest/Stimulus:ev_reject+' => '~~',
+));

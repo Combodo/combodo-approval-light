@@ -1,26 +1,27 @@
 <?php
+// Copyright (C) 2012 Combodo SARL
+//
+//   This program is free software; you can redistribute it and/or modify
+//   it under the terms of the GNU General Public License as published by
+//   the Free Software Foundation; version 3 of the License.
+//
+//   This program is distributed in the hope that it will be useful,
+//   but WITHOUT ANY WARRANTY; without even the implied warranty of
+//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//   GNU General Public License for more details.
+//
+//   You should have received a copy of the GNU General Public License
+//   along with this program; if not, write to the Free Software
+//   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 /**
  * Localized data
  *
- * @copyright Copyright (C) 2010-2018 Combodo SARL
- * @license	http://opensource.org/licenses/AGPL-3.0
- *
- * This file is part of iTop.
- *
- * iTop is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * iTop is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with iTop. If not, see <http://www.gnu.org/licenses/>
+ * @author      Erwan Taloc <erwan.taloc@combodo.com>
+ * @author      Romain Quetiez <romain.quetiez@combodo.com>
+ * @author      Denis Flaven <denis.flaven@combodo.com>
+ * @license     http://www.opensource.org/licenses/gpl-3.0.html LGPL
  */
-Dict::Add('CS CZ', 'Czech', 'Čeština', array(
+Dict::Add('SK SK', 'Slovak', 'Slovenčina', array(
 	// Dictionary entries go here
 	'Menu:Ongoing approval' => 'Requests waiting for approval~~',
 	'Menu:Ongoing approval+' => 'Requests waiting for approval~~',
@@ -39,7 +40,7 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 // Class: UserRequestApprovalScheme
 //
 
-Dict::Add('CS CZ', 'Czech', 'Čeština', array(
+Dict::Add('SK SK', 'Slovak', 'Slovenčina', array(
 	'Class:UserRequestApprovalScheme' => 'UserRequestApprovalScheme~~',
 	'Class:UserRequestApprovalScheme+' => '~~',
 ));
@@ -48,7 +49,7 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 // Class: UserRequest
 //
 
-Dict::Add('CS CZ', 'Czech', 'Čeština', array(
+Dict::Add('SK SK', 'Slovak', 'Slovenčina', array(
 	'Class:UserRequest/Stimulus:ev_approve' => 'Approve~~',
 	'Class:UserRequest/Stimulus:ev_approve+' => '~~',
 	'Class:UserRequest/Stimulus:ev_reject' => 'Reject~~',
