@@ -21,7 +21,7 @@
  * @author      Denis Flaven <denis.flaven@combodo.com>
  * @license     http://www.opensource.org/licenses/gpl-3.0.html LGPL
  */
-Dict::Add('ES CR', 'Spanish', 'Español, Castellaño', array(
+Dict::Add('ES CR', 'Spanish', 'Español, Castellano', array(
 	// Dictionary entries go here
 	'Menu:Ongoing approval' => 'Requerimientos esperando Aprobación',
 	'Menu:Ongoing approval+' => 'Requerimientos esperando Aprobación',
@@ -42,7 +42,7 @@ Dict::Add('ES CR', 'Spanish', 'Español, Castellaño', array(
 // Class: UserRequestApprovalScheme
 //
 
-Dict::Add('ES CR', 'Spanish', 'Español, Castellaño', array(
+Dict::Add('ES CR', 'Spanish', 'Español, Castellano', array(
 	'Class:UserRequestApprovalScheme' => 'UserRequestApprovalScheme~~',
 	'Class:UserRequestApprovalScheme+' => '~~',
 ));
@@ -51,7 +51,7 @@ Dict::Add('ES CR', 'Spanish', 'Español, Castellaño', array(
 // Class: UserRequest
 //
 
-Dict::Add('ES CR', 'Spanish', 'Español, Castellaño', array(
+Dict::Add('ES CR', 'Spanish', 'Español, Castellano', array(
 	'Class:UserRequest/Stimulus:ev_approve' => 'Approve~~',
 	'Class:UserRequest/Stimulus:ev_approve+' => '~~',
 	'Class:UserRequest/Stimulus:ev_reject' => 'Reject~~',
