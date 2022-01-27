@@ -16,7 +16,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'combodo-approval-light/1.2.1',
+	'combodo-approval-light/1.3.0',
 	array(
 		// Identification
 		//
@@ -99,7 +99,7 @@ if (!class_exists('ApprovalLightInstaller'))
 			// Upgrading from a version older than 1.1 : create the sample data
 			if (version_compare($sPreviousVersion, '1.1.0', '<'))
 			{
-				SetupPage::log_info("Upgrading combodo-approval-light from '$sPreviousVersion' to '$sCurrentVersion'. Starting with 1.1.0, the extension requires a set of trigger/actions that will created into the DB...");
+				SetupLog::Info("Upgrading combodo-approval-light from '$sPreviousVersion' to '$sCurrentVersion'. Starting with 1.1.0, the extension requires a set of trigger/actions that will created into the DB...");
 
 				$oTrigger = MetaModel::NewObject('TriggerOnApprovalRequest');
 				$oTrigger->Set('description', 'Approval requested');
@@ -163,7 +163,7 @@ if (!class_exists('ApprovalLightInstaller'))
 				');
 				$oAction->DBInsert();
 
-				SetupPage::log_info("... sample trigger/actions successfully created.");
+				SetupLog::Info("... sample trigger/actions successfully created.");
 			}
 		}
 	}
