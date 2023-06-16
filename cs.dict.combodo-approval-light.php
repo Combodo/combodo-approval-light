@@ -22,18 +22,18 @@
  */
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 	// Dictionary entries go here
-	'Menu:Ongoing approval' => 'Requests waiting for approval~~',
-	'Menu:Ongoing approval+' => 'Requests waiting for approval~~',
-	'Approbation:PublicObjectDetails' => '<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject ticket $object->html(ref)$</p>
-				      <b>Caller</b>: $object->html(caller_id_friendlyname)$<br>
-				      <b>Title</b>: $object->html(title)$<br>
-				      <b>Service</b>: $object->html(service_name)$<br>
-				      <b>Service subcategory</b>: $object->html(servicesubcategory_name)$<br>
-				      <b>Description</b>:<br>				     
+	'Menu:Ongoing approval' => 'Požadavky čekající na schválení',
+	'Menu:Ongoing approval+' => 'Požadavky čekající na schválení',
+	'Approbation:PublicObjectDetails' => '<p>Vážený/á $approver->html(friendlyname)$, prosíme o schválení nebo zamítnutí požadavku $object->html(ref)$</p>
+				      <b>Volající</b>: $object->html(caller_id_friendlyname)$<br>
+				      <b>Předmět</b>: $object->html(title)$<br>
+				      <b>Služba</b>: $object->html(service_name)$<br>
+				      <b>Podkategorie služeb</b>: $object->html(servicesubcategory_name)$<br>
+				      <b>Popis</b>:<br>				     
 				      $object->html(description)$~~',
-	'Approbation:FormBody' => '<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject the ticket</p>~~',
-	'Approbation:ApprovalRequested' => 'Your approval is requested~~',
-	'Approbation:Introduction' => '<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject ticket $object->html(friendlyname)$</p>~~',
+	'Approbation:FormBody' => '<p>Vážený/á $approver->html(friendlyname)$, prosíme o schválení nebo zamítnutí požadavku</p>',
+	'Approbation:ApprovalRequested' => 'Je požadováno schválení',
+	'Approbation:Introduction' => '<p>Vážený/á $approver->html(friendlyname)$, prosíme o schválení nebo zamítnutí požadavku $object->html(friendlyname)$</p>',
 ));
 //
 // Class: UserRequestApprovalScheme
@@ -49,8 +49,8 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 //
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
-	'Class:UserRequest/Stimulus:ev_approve' => 'Approve~~',
-	'Class:UserRequest/Stimulus:ev_approve+' => '~~',
-	'Class:UserRequest/Stimulus:ev_reject' => 'Reject~~',
-	'Class:UserRequest/Stimulus:ev_reject+' => '~~',
+	'Class:UserRequest/Stimulus:ev_approve' => 'Schválit',
+	'Class:UserRequest/Stimulus:ev_approve+' => 'Scválení požadavku',
+	'Class:UserRequest/Stimulus:ev_reject' => 'Zamítnout',
+	'Class:UserRequest/Stimulus:ev_reject+' => 'Zamítnutí požadavku',
 ));
