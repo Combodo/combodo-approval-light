@@ -41,8 +41,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 
 Dict::Add('FR FR', 'French', 'Français', array(
-	'Class:UserRequestApprovalScheme' => 'UserRequestApprovalScheme~~',
-	'Class:UserRequestApprovalScheme+' => '~~',
+	'Class:UserRequestApprovalScheme' => 'Schéma d\'approbation pour demande utilisateur',
+	'Class:UserRequestApprovalScheme+' => '',
 ));
 
 //
@@ -51,7 +51,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 
 Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:UserRequest/Stimulus:ev_approve' => 'Approuver',
-	'Class:UserRequest/Stimulus:ev_approve+' => '~~',
+	'Class:UserRequest/Stimulus:ev_approve+' => '',
 	'Class:UserRequest/Stimulus:ev_reject' => 'Rejeter',
-	'Class:UserRequest/Stimulus:ev_reject+' => '~~',
+	'Class:UserRequest/Stimulus:ev_reject+' => '',
 ));
