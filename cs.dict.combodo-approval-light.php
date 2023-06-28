@@ -50,7 +50,7 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 	'Class:UserRequest/Stimulus:ev_approve' => 'Schválit',
-	'Class:UserRequest/Stimulus:ev_approve+' => 'Scválení požadavku',
+	'Class:UserRequest/Stimulus:ev_approve+' => 'Schválení požadavku',
 	'Class:UserRequest/Stimulus:ev_reject' => 'Zamítnout',
 	'Class:UserRequest/Stimulus:ev_reject+' => 'Zamítnutí požadavku',
 ));
