@@ -22,25 +22,25 @@
  */
 Dict::Add('ZH CN', 'Chinese', '简体中文', array(
 	// Dictionary entries go here
-	'Menu:Ongoing approval' => 'Requests waiting for approval~~',
-	'Menu:Ongoing approval+' => 'Requests waiting for approval~~',
-	'Approbation:PublicObjectDetails' => '<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject ticket $object->html(ref)$</p>
-				      <b>Caller</b>: $object->html(caller_id_friendlyname)$<br>
-				      <b>Title</b>: $object->html(title)$<br>
-				      <b>Service</b>: $object->html(service_name)$<br>
-				      <b>Service subcategory</b>: $object->html(servicesubcategory_name)$<br>
-				      <b>Description</b>:<br>				     
+	'Menu:Ongoing approval' => '等待审批的需求',
+	'Menu:Ongoing approval+' => '等待审批的需求',
+	'Approbation:PublicObjectDetails' => '<p>尊敬的$approver->html(friendlyname)$, 请抽空审批工单$object->html(ref)$</p>
+				      <b>发起人</b>: $object->html(caller_id_friendlyname)$<br>
+				      <b>标题</b>: $object->html(title)$<br>
+				      <b>服务</b>: $object->html(service_name)$<br>
+				      <b>子服务</b>: $object->html(servicesubcategory_name)$<br>
+				      <b>说明</b>:<br>				     
 				      $object->html(description)$~~',
-	'Approbation:FormBody' => '<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject the ticket</p>~~',
-	'Approbation:ApprovalRequested' => 'Your approval is requested~~',
-	'Approbation:Introduction' => '<p>Dear $approver->html(friendlyname)$, please take some time to approve or reject ticket $object->html(friendlyname)$</p>~~',
+	'Approbation:FormBody' => '<p>尊敬的$approver->html(friendlyname)$, 请抽空审批工单</p>',
+	'Approbation:ApprovalRequested' => '需要您的审批',
+	'Approbation:Introduction' => '<p>尊敬的$approver->html(friendlyname)$, 请抽空审批工单$object->html(friendlyname)$</p>',
 ));
 //
 // Class: UserRequestApprovalScheme
 //
 
 Dict::Add('ZH CN', 'Chinese', '简体中文', array(
-	'Class:UserRequestApprovalScheme' => 'UserRequestApprovalScheme~~',
+	'Class:UserRequestApprovalScheme' => '用户请求审批方案',
 	'Class:UserRequestApprovalScheme+' => '~~',
 ));
 
@@ -49,8 +49,8 @@ Dict::Add('ZH CN', 'Chinese', '简体中文', array(
 //
 
 Dict::Add('ZH CN', 'Chinese', '简体中文', array(
-	'Class:UserRequest/Stimulus:ev_approve' => 'Approve~~',
+	'Class:UserRequest/Stimulus:ev_approve' => '同意',
 	'Class:UserRequest/Stimulus:ev_approve+' => '~~',
-	'Class:UserRequest/Stimulus:ev_reject' => 'Reject~~',
+	'Class:UserRequest/Stimulus:ev_reject' => '驳回',
 	'Class:UserRequest/Stimulus:ev_reject+' => '~~',
 ));
