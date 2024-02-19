@@ -30,7 +30,7 @@ Dict::Add('ZH CN', 'Chinese', '简体中文', array(
 				      <b>服务</b>: $object->html(service_name)$<br>
 				      <b>子服务</b>: $object->html(servicesubcategory_name)$<br>
 				      <b>说明</b>:<br>				     
-				      $object->html(description)$~~',
+				      $object->html(description)$',
 	'Approbation:FormBody' => '<p>尊敬的$approver->html(friendlyname)$, 请抽空审批工单</p>',
 	'Approbation:ApprovalRequested' => '需要您的审批',
 	'Approbation:Introduction' => '<p>尊敬的$approver->html(friendlyname)$, 请抽空审批工单$object->html(friendlyname)$</p>',

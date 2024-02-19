@@ -30,7 +30,7 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 				      <b>Služba</b>: $object->html(service_name)$<br>
 				      <b>Podkategorie služeb</b>: $object->html(servicesubcategory_name)$<br>
 				      <b>Popis</b>:<br>				     
-				      $object->html(description)$~~',
+				      $object->html(description)$',
 	'Approbation:FormBody' => '<p>Vážený/á $approver->html(friendlyname)$, prosíme o schválení nebo zamítnutí požadavku</p>',
 	'Approbation:ApprovalRequested' => 'Je požadováno schválení',
 	'Approbation:Introduction' => '<p>Vážený/á $approver->html(friendlyname)$, prosíme o schválení nebo zamítnutí požadavku $object->html(friendlyname)$</p>',
